@@ -1,7 +1,7 @@
 <%= form_with model: @post do |form| %>
-  <%= label_tag :title, 'input title' %>
-  <%= form.text_field :title %>
-  <%= label_tag :description, 'input description' %>
-  <%= form.text_field :description %>
-  <%= form.submit 'Submit' %>
+  <%= label_tag :title, "What's your Secret's Title?" %><br>
+  <%= form.text_field :title, class: 'form-control w-50 mx-auto' %><br>
+  <%= label_tag :description, 'Your Secret Description?' %><br>
+  <%= form.text_area :description, class: 'form-control w-50 mx-auto' %><br>
+  <%= form.submit 'Reveal your Secret', class: "btn btn-primary my-4 w-50" %>
 <% end %>
