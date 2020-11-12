@@ -6,10 +6,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
+    @post = current_user.posts.build(posts_params)
 
   end
 
@@ -23,5 +24,11 @@ class PostsController < ApplicationController
 
   def update
 
+  end
+
+  private
+
+  def posts_params
+    params.require(:post).permit(:title, :description, :user_id)
   end
 end
