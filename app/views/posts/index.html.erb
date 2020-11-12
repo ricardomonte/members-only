@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-10 mx-auto mt-4">
+      <h1 class="text-center mb-5 mt-2">These are the last secrets posted:</h1>
+      <ul class="list-group list-group-flush">
+        <% @posts.each do |post| %>
+          <li class="list-group-item text-center">
+          <h5><%= post.title %></h5>
+          <p><%= post.description %></p>
+          <% if user_signed_in? %>
+            <p class="blockquote-footer"> 
+              This secret was bestrew by <%= post.user.name %>
+            </p>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
