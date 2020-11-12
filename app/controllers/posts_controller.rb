@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  
+  before_action :authenticate_user!, only: %i[new create]
+
   def index
     @posts = Post.all
   end
@@ -11,22 +11,14 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(posts_params)
-    if @post.save
-      redirect_to root_path
-    end
+    redirect_to root_path if @post.save
   end
 
-  def show
+  def show; end
 
-  end
+  def edit; end
 
-  def edit
-
-  end
-
-  def update
-
-  end
+  def update; end
 
   private
 
