@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 mx-auto mt-5 text-center">
+      <h2 class="display-4 mb-4">Sign up</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <%= f.label :name, class: "font-weight-bold w-50 text-left mt-3" %><br />
+          <%= f.text_field :name, autofocus: true, class: 'form-control w-50 mx-auto' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :username, class: "font-weight-bold w-50 text-left mt-3" %><br />
+          <%= f.text_field :username, class: 'form-control w-50 mx-auto' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email, class: "font-weight-bold w-50 text-left mt-3" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control w-50 mx-auto' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, class: "font-weight-bold w-50 text-left mt-3" %>
+          <% if @minimum_password_length %>
+          <p class="w-50">(<%= @minimum_password_length %> characters minimum)</p>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control w-50 mx-auto' %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, class: "font-weight-bold w-50 text-left mt-3" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control w-50 mx-auto' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-primary my-4" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>
+
