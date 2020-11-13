@@ -38,6 +38,10 @@ Run Bundle install, to install the gems dependencies.
 ```
 $  bundle install
 ```
+Run npm install, to install dependencies.
+```
+$  npm install
+```
 Run the following command to migrate the database:
 ```
 $  rails db:migrate
