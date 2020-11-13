@@ -9,11 +9,12 @@ module PostsHelper
   end
 
   def tags_for_list(post)
-    (content_tag(:h5, post.title)) +
-    (content_tag(:p, post.description)) +
-    (content_tag(:p, "Revealed #{time_ago_in_words(post.created_at)} ago", class: 'blockquote-footer')) +
+    text_for_sign_in = "This secret was revealed by #{post.user.name} (@#{post.user.username})"
+    content_tag(:h5, post.title) +
+    content_tag(:p, post.description) +
+    content_tag(:p, "Revealed #{time_ago_in_words(post.created_at)} ago", class: 'blockquote-footer') +
     if user_signed_in?
-      (content_tag(:p, "This secret was revealed by #{post.user.name} (@#{post.user.username})", class: 'blockquote-footer'))
+      content_tag(:p, text_for_sign_in, class: 'blockquote-footer')
     end
     
   end
