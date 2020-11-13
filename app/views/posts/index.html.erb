@@ -2,20 +2,7 @@
   <div class="row">
     <div class="col-10 mx-auto mt-4">
       <h1 class="text-left mb-4 mt-2">These are the last secrets:</h1>
-      <ul class="list-group">
-        <% @posts.each do |post| %>
-          <li class="list-group-item text-center">
-            <h5><%= post.title %></h5>
-            <p><%= post.description %></p>
-            <p class="blockquote-footer">Revealed <%= time_ago_in_words(post.created_at) %> ago </p>
-            <% if user_signed_in? %>
-              <p class="blockquote-footer"> 
-                This secret was revealed by <%= post.user.name %> (@<%= post.user.username %>)
-              </p>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+      <%= list_in_index(@posts) %>
     </div>
   </div>
 </div>
